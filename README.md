@@ -1,8 +1,6 @@
 # OOP Design Exercises
 
-## Purpose
-
-Welcome to the **OOP Design Exercises** repository! This repository was created to address the lack of practical exercises focused on object-oriented programming (OOP) design. Whether you’re preparing for technical interviews or simply looking to sharpen your OOP skills, this repository offers a collection of exercises that will help you apply SOLID principles and coding best practices in real-world scenarios.
+Welcome to **OOP Design Exercises**! This repository was created to address the lack of practical exercises focused on object-oriented programming (OOP) design. Whether you’re preparing for technical interviews or simply looking to sharpen your OOP skills, this repository offers a collection of exercises that will help you apply SOLID principles and coding best practices in real-world scenarios.
 
 ## How to Use This Repository
 
