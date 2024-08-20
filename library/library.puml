@@ -1,0 +1,33 @@
+@startuml
+
+class Book {
+    +String isbn
+    +String title
+    +String author
+    +boolean available
+}
+
+class Member {
+    +String name
+    +int member_id
+}
+
+class Library {
+    ~{String, Book} books
+    ~{int, Member} members
+    ~{int, Book[]} borrowed
+
+    +void add_book(String isbn, String title, String author)
+    +void create_member(String name, int member_id)
+    +void lend_book(int member_id, String isbn)
+    +void return_book(int member_id, String isbn)
+    +boolean check_availability(String isbn)
+    +String[] get_borrowed_books(int member_id)
+    -void _validate_member(int member_id)
+    -Book _find_book_by_isbn(String isbn)
+}
+
+Library --> Book : "manages *"
+Library --> Member : "registers *"
+
+@enduml
