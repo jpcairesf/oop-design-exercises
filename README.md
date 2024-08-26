@@ -23,10 +23,16 @@ Before diving into these exercises, it’s recommended that you have a solid und
 
 These concepts will be crucial as you work through the exercises and aim to develop clean, maintainable, and scalable solutions.
 
-If you want to run the given solutions in your machine, be sure to have Python3 installed and either run a local PlantUML server or access the Online Server in the [official website](https://plantuml.com/starting).
-
 ## Why Python?
 
 Even though I usually work with Java, I strongly suggest using Python for these exercises, especially if you are preparing for interviews. Python is easy to use and read, which makes it a great choice for writing clear code quickly. Its flexible and simple syntax lets you focus more on solving the problem and designing your solution instead of worrying about complex code details.
 
 Also, Python’s readability helps interviewers understand your thought process during interviews, which allows you to better show your knowledge of OOP principles.
+
+## Running Locally
+
+Make sure you have Python installed on your machine. You can run the tests by navigating to each folder and executing the following command. 
+```bash
+python -m unittest discover -v -s . -p 'test_*.py'
+```
+To visualize the PlantUML diagrams, you can either install an extension in your preferred code editor or use a PlantUML server on your machine, or an existent one (see the "Online Server" section on the [official website](https://plantuml.com/starting)).
