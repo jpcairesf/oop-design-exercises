@@ -15,7 +15,6 @@ class Account:
     def __init__(self, account_number, initial_amount):
         self.account_number = account_number
         self.balance = initial_amount
-        self.creation_date = date.today()
 
     def compute_transaction(self, transaction: Transaction):
         self.balance += transaction.amount
@@ -70,7 +69,7 @@ class Bank:
     def _validate_new_account(self, account_number, initial_amount):
         if account_number <= 0:
             raise ValueError("Account number must be greater than zero")
-        if initial_amount <= 0:
+        if initial_amount < 0:
             raise ValueError("Initial amount must not be negative")
         if account_number in self.accounts:
             raise ValueError("Account number already exists")
@@ -90,6 +89,3 @@ class Bank:
     def _validate_date(self, transaction_date, account_number):
         if transaction_date < date.today():
             raise ValueError("Invalid date")
-        account_creation_date = self.accounts[account_number].creation_date
-        if transaction_date < account_creation_date:
-            raise ValueError("Transaction date cannot be before account creation date")
