@@ -1,6 +1,6 @@
 import unittest
 
-from library.library import Library
+from library import Library
 
 
 class Tests(unittest.TestCase):
