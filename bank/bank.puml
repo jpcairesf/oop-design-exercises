@@ -1,0 +1,34 @@
+@startuml
+class Transaction {
+    +String account_number
+    +int amount
+    +String description
+    +date transaction_date
+}
+
+class Account {
+    +String account_number
+    +int balance
+    +date creation_date
+}
+
+class Bank {
+    ~{String, Account} accounts
+    ~{String, Transaction[]} transactions
+
+    +void create_account(String account_number, int initial_amount)
+    +void deposit(String account_number, int amount, date transaction_date)
+    +void withdraw(String account_number, int amount, date transaction_date)
+    +void transfer(String payer_account_number, String payee_account_number, int amount, date transaction_date)
+    +String[] generate_report(String account_number, date report_start_date, date report_end_date)
+    -void _process_transaction(String account_number, int amount, String description, date transaction_date)
+    -void _validate_new_account(String account_number, int initial_amount)
+    -void _validate_amount(int amount)
+    -void _validate_account(String account_number)
+    -void _validate_transaction(Transaction transaction, Account account)
+    -void _validate_date(date transaction_date, String account_number)
+}
+
+Bank --> Account : "manages"
+Bank --> Transaction : "records"
+@enduml
