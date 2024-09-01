@@ -16,7 +16,7 @@ The bank should be able to perform the following operations:
 
 #### Account:
 - Each account must have a unique account number.
-- The account number is not a string and it must be greater than zero.
+- The account number is not a string, and it must be greater than zero.
 - The account balance should be updated with every transaction.
 
 #### Transactions:
