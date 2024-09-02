@@ -22,9 +22,13 @@ class Library:
         self.books = {}
 
     def add_book(self, isbn, title, author):
+        if isbn in self.books:
+            raise ValueError("ISBN already exists")
         self.books[isbn] = Book(isbn, title, author)
 
     def create_member(self, name, member_id):
+        if member_id in self.members:
+            raise ValueError("Member ID already exists")
         self.members[member_id] = Member(name, member_id)
 
     def lend_book(self, member_id, isbn):

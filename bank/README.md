@@ -6,7 +6,7 @@ A bank is responsible for managing customer accounts, allowing customers to perf
 
 The bank should be able to perform the following operations:
 
-1. **Create Account**: Register a new account with an account number, initial balance, and creation date.
+1. **Create Account**: Register a new account with an account number and initial balance.
 2. **Deposit**: Deposit money into an account, increasing the account balance.
 3. **Withdraw**: Withdraw money from an account, decreasing the account balance. Ensure that the withdrawal amount does not exceed the available balance.
 4. **Transfer**: Transfer money between two accounts by withdrawing from the source account and depositing into the target account.
