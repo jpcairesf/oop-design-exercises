@@ -9,8 +9,9 @@ The student enrollment system should be able to perform the following operations
 1. **Register Student**: Register a new student with a unique student ID and name.
 2. **Create Course**: Create a new course with a unique course ID and title.
 3. **Enroll Student**: Enroll a registered student in a course.
-4. **Get Enrolled Courses**: Retrieve a list of courses that a specific student is enrolled in.
-5. **Get Enrolled Students**: Retrieve a list of students enrolled in a specific course.
+4. **Assign Grades**: Assign a grade for a student in a course.
+5. **Get Enrolled Courses**: Retrieve a list of courses that a specific student is enrolled in.
+6. **Get Course Grades**: Retrieve a list of students enrolled in a specific course.
 
 ### Conditions
 
@@ -27,3 +28,4 @@ The student enrollment system should be able to perform the following operations
 - A course must be created in the system before students can enroll.
 - Students can be enrolled in multiple courses, and a course can have multiple students.
 - Operations should ensure that enrollments are properly tracked and that information can be retrieved correctly.
+- A student's enrollment in a course has a grade linked to it.
