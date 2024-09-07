@@ -11,6 +11,7 @@ class TestBank(unittest.TestCase):
     def test_create_account(self):
         self.bank.create_account(1, 100)
         self.assertIn(1, self.bank.accounts)
+        self.assertEqual(1, len(self.bank.accounts))
 
     def test_create_account_duplicate_account_number(self):
         self.bank.create_account(1, 100)
