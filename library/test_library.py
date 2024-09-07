@@ -10,6 +10,7 @@ class TestLibrary(unittest.TestCase):
     def test_add_book(self):
         self.library.add_book(1, 'Book', 'Author')
         self.assertIn(1, self.library.books)
+        self.assertEqual(1, len(self.library.books))
 
     def test_add_book_duplicate_isbn(self):
         self.library.add_book(1, 'Book', 'Author')
@@ -19,6 +20,7 @@ class TestLibrary(unittest.TestCase):
     def test_create_member(self):
         self.library.create_member('John', 1)
         self.assertIn(1, self.library.members)
+        self.assertEqual(1, len(self.library.members))
 
     def test_create_member_duplicate_member_id(self):
         self.library.create_member('John', 1)
