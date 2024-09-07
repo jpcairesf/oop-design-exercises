@@ -16,6 +16,10 @@ class TestCollege(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.college.register_student(1, "Student 2")
 
+    def test_register_student_invalid_name(self):
+        with self.assertRaises(ValueError):
+            self.college.register_student(1, "")
+
     def test_create_course(self):
         self.college.create_course(1, "Course 1")
         self.assertIn(1, self.college.courses)
@@ -25,6 +29,10 @@ class TestCollege(unittest.TestCase):
         self.college.create_course(1, "Course 1")
         with self.assertRaises(ValueError):
             self.college.create_course(1, "Course 2")
+
+    def test_create_course_invalid_title(self):
+        with self.assertRaises(ValueError):
+            self.college.create_course(1, "")
 
     def test_enroll_student(self):
         self.college.register_student(1, "Student 1")

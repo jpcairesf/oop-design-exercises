@@ -35,11 +35,15 @@ class College:
     def register_student(self, student_id, name):
         if student_id in self.students:
             raise ValueError("Student ID already exists")
+        if not name:
+            raise ValueError("Invalid student name")
         self.students[student_id] = Student(student_id, name)
 
     def create_course(self, course_id, title):
         if course_id in self.courses:
             raise ValueError("Course ID already exists")
+        if not title:
+            raise ValueError("Invalid course title")
         self.courses[course_id] = Course(course_id, title)
 
     def enroll_student(self, student_id, course_id):
