@@ -9,9 +9,6 @@ class Course:
         self.course_id = course_id
         self.title = title
 
-    def __repr__(self):
-        return f"{self.course_id} - {self.title}"
-
 
 class Enrollment:
     def __init__(self, student, course):
@@ -24,14 +21,15 @@ class Enrollment:
             raise ValueError("Grade should be greater than zero")
         self.grade = grade
 
-    def __repr__(self):
-        return f"{self.course.title} - {self.student.name}: {self.grade if self.grade else "Not computed"}"
-
 
 class College:
     def __init__(self):
         self.students = {}
         self.courses = {}
+        """
+        This is a space efficient solution for enrollments.
+        How would you implement a time efficient one?
+        """
         self.enrollments = set()
 
     def register_student(self, student_id, name):
@@ -45,21 +43,42 @@ class College:
         self.courses[course_id] = Course(course_id, title)
 
     def enroll_student(self, student_id, course_id):
-        if student_id not in self.students:
-            raise ValueError("Student ID not found")
-        if course_id not in self.courses:
-            raise ValueError("Course ID not found")
+        self._validate_student(student_id)
+        self._validate_course(course_id)
         student = self.students[student_id]
         course = self.courses[course_id]
         enrollment = Enrollment(student, course)
         self.enrollments.add(enrollment)
 
-    def get_enrolled_courses(self, student_id):
-        if student_id not in self.students:
-            raise ValueError("Student ID not found")
-        return [enrollment.course for enrollment in self.enrollments if enrollment.student.student_id == student_id]
+    def assign_grade(self, student_id, course_id, grade):
+        self._validate_student(student_id)
+        self._validate_course(course_id)
+        for enrollment in self.enrollments:
+            if enrollment.student.student_id == student_id and enrollment.course.course_id == course_id:
+                enrollment.assign_grade(grade)
+                return
+        raise ValueError("Student not enrolled in the given course")
 
     def get_course_grades(self, course_id):
+        self._validate_course(course_id)
+        enrollments = []
+        for enrollment in self.enrollments:
+            if enrollment.course.course_id == course_id:
+                enrollments.append(enrollment)
+        return enrollments
+
+    def get_student_grades(self, student_id):
+        self._validate_student(student_id)
+        enrollments = []
+        for enrollment in self.enrollments:
+            if enrollment.student.student_id == student_id:
+                enrollments.append(enrollment)
+        return enrollments
+
+    def _validate_student(self, student_id):
+        if student_id not in self.students:
+            raise ValueError("Student ID not found")
+
+    def _validate_course(self, course_id):
         if course_id not in self.courses:
             raise ValueError("Course ID not found")
-        return [enrollment for enrollment in self.enrollments if enrollment.course.course_id == course_id]
