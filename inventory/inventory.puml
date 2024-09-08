@@ -1,0 +1,30 @@
+@startuml
+class Product {
+    +int product_id
+    +String name
+    +int stock
+    +int threshold
+    +boolean reorder
+
+    +int check_stock()
+    +boolean is_available()
+    +void update_stock(int value)
+    +void set_reorder(boolean reorder)
+    +String __repr__()
+}
+
+class Inventory {
+    ~{int, Product} products
+    ~{Product} reorder_products
+
+    +void add_product(int product_id, String name, int stock, int threshold)
+    +void update_stock(int product_id, int value)
+    +int check_stock(int product_id)
+    +{int, Product} get_stock_levels()
+    +boolean get_availability(int product_id)
+    +{Product} get_reorder_products()
+    -void _validate_product(int product_id)
+}
+
+Inventory --> Product : "manages *"
+@enduml
