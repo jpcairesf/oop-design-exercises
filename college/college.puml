@@ -1,0 +1,41 @@
+@startuml
+class Student {
+    +int student_id
+    +String name
+}
+
+class Course {
+    +int course_id
+    +String title
+}
+
+class Enrollment {
+    +Student student
+    +Course course
+    +int grade
+
+    +void assign_grade(int grade)
+}
+
+class College {
+    ~{int, Student} students
+    ~{int, Course} courses
+    ~{Enrollment} enrollments
+
+    +void register_student(int student_id, String name)
+    +void create_course(int course_id, String title)
+    +void enroll_student(int student_id, int course_id)
+    +void assign_grade(int student_id, int course_id, int grade)
+    +Enrollment[] get_course_grades(int course_id)
+    +Enrollment[] get_student_grades(int student_id)
+
+    -void _validate_student(int student_id)
+    -void _validate_course(int course_id)
+}
+
+College --> Student : "manages"
+College --> Course : "offers"
+College --> Enrollment : "records"
+Enrollment --> Student : "references"
+Enrollment --> Course : "references"
+@enduml
