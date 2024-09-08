@@ -1,25 +1,33 @@
-### Advanced Inventory Management System Exercise
-An advanced inventory management system tracks products in multiple warehouses and handles product categorization, stock transfers, and reorder thresholds. The system should support detailed reporting for stock levels across all warehouses.
+# Inventory Management Exercise
 
-**Features**  
-The advanced inventory management system should be able to perform the following operations:
+An inventory management system keeps track of products in a warehouse. The system allows adding new products, updating stock levels, and checking product availability.
 
-1. **Add Product**: Add a new product with a unique product ID, name, initial stock quantity, category (e.g., electronics, clothing), and associated warehouse.
-2. **Update Stock**: Update stock levels for products across multiple warehouses. Adjustments should automatically trigger restocking if the stock falls below a predefined threshold.
-3. **Transfer Stock**: Transfer stock of a product between warehouses, ensuring that the transfer is valid.
-4. **Check Stock**: Check the stock level for a specific product across all warehouses or within a specific warehouse.
-5. **Generate Stock Report**: Generate detailed reports showing the stock levels for all products across all warehouses.
-6. **Reorder Products**: Automatically flag products for reorder when stock falls below a specified threshold and initiate restocking procedures.
+## Features
 
-**Conditions**  
-- **Product**:
-  - Each product must have a unique product ID and be assigned to a specific category.
-  - Products may be stored in multiple warehouses, each with its own stock level.
-  
-- **Stock Management**:
-  - Stock transfers should adjust the stock levels between warehouses appropriately.
-  - Reordering should be triggered automatically when stock falls below a certain threshold.
+The inventory management system should be able to perform the following operations:
 
-- **Operations**:
-  - Stock reports should provide detailed insights into stock levels across all warehouses.
-  - Reordering should generate a notification or initiate the restocking process.
+1. **Add Product**: Add a new product to the inventory with a unique product ID, name, reorder threshold and initial stock quantity.
+2. **Update Stock**: Update the stock quantity for a specific product (either adding or subtracting from the current stock).
+3. **Check Stock**: Check the current stock level for a specific product.
+4. **Get Stock Levels**: Retrieve a list of all products currently in the inventory, along with their stock levels.
+5. **Product Availability**: Check if a specific product is available (i.e., has stock greater than zero).
+6. **Reorder Products**: Automatically flag products for reorder when stock falls below a specified threshold. Retrieve all products that should be reordered.
+
+## Conditions
+
+### Product:
+
+- Each product must have a unique product ID.
+- Products have a stock quantity that represents the available units in the warehouse.
+- A product should be flagged to reorder when the stock is equal or less than its threshold.
+
+### Stock Updates:
+
+- Stock can be increased or decreased, depending on inventory changes.
+- Stock cannot go below zero.
+
+### Operations:
+
+- Adding or removing stock should update the product's stock level accordingly.
+- Availability is determined based on whether the stock is greater than zero.
+- The reorder flag must be removed when the stock increase above the threshold.
