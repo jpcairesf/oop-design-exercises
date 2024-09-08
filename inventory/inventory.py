@@ -31,6 +31,13 @@ class Product:
     def __repr__(self):
         return f"{self.product_id} - {self.name}: {self.stock}"
 
+    def __hash__(self):
+        return hash((self.product_id, self.name, self.stock, self.threshold, self.reorder))
+
+    def __eq__(self, other):
+        return (isinstance(other, self.__class__) and self.product_id == other.product_id and self.name == other.name
+                and self.stock == other.stock and self.threshold == other.threshold and self.reorder == other.reorder)
+
 
 class Inventory:
     def __init__(self):

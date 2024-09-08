@@ -13,6 +13,12 @@ class TestInventory(unittest.TestCase):
         self.assertEqual(10, self.inventory.products[1].threshold)
         self.assertEqual(False, self.inventory.products[1].reorder)
 
+    def test_product_equality(self):
+        product1 = inventory.Product(1, "Product 1", 100, 10)
+        product2 = inventory.Product(1, "Product 1", 100, 10)
+        self.assertEqual(product1, product2)
+        self.assertEqual(hash(product1), hash(product2))
+
     def test_add_product_already_exists(self):
         self.inventory.add_product(1, "Product 1", 100, 10)
         with self.assertRaises(ValueError):
