@@ -1,10 +1,10 @@
-# Inventory Management Exercise
+# Inventory Exercise
 
-An inventory management system keeps track of products in a warehouse. The system allows adding new products, updating stock levels, and checking product availability.
+An inventory system keeps track of products in a warehouse. The system allows adding new products, updating stock levels, and checking product availability.
 
 ## Features
 
-The inventory management system should be able to perform the following operations:
+The inventory system should be able to perform the following operations:
 
 1. **Add Product**: Add a new product to the inventory with a unique product ID, name, reorder threshold and initial stock quantity.
 2. **Update Stock**: Update the stock quantity for a specific product (either adding or subtracting from the current stock).
